@@ -1,7 +1,8 @@
+<img class="mh-logo" src="mh-logo.png"/>
 <div class="xp-calculator">
   {{#paper-card class="stats"}}
     {{#paper-card-content}}
-      <h2>Current Stats</h2>
+      <h3>Current Stats</h3>
       {{paper-text label="Serverside XP Boost (%)" value=serverBoost}}
       {{paper-text label="Stat Sheet XP Boost (%)" value=statSheetBoost}}
       {{#paper-checkbox checked=isAvenger}}Are you an Avenger?{{/paper-checkbox}}
@@ -14,12 +15,33 @@
 
   {{#paper-card class="results"}}
     {{#paper-card-content}}
-      <h2>Calculated Results</h2>
-      <h3>Current XP Multiplier: {{formattedCurrentXPMultiplier}}</h3>
-      <h3>Midtown Box XP Value: {{mmBoxCurrentXpFormatted}}</h3>
-      {{#each levels as |level|}}
-        <h3>{{level.number}} - {{level.mmBoxesRequired}}</h3>
-      {{/each}}
+      <h3>Calculated Results</h3>
+      <p class="result-text">Current XP Multiplier: {{formattedCurrentXPMultiplier}}</p>
+      <p class="result-text">Midtown Box XP Value: {{mmBoxCurrentXpFormatted}}</p>
+      <table class="md-table table-condensed">
+        <thead>
+          <tr>
+            <th>
+              Level
+            </th>
+            <th>
+              Total XP Required
+            </th>
+            <th>
+              MM Boxes Required
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each levels as |level|}}
+            <tr>
+              <td>{{level.number}}</td>
+              <td>{{level.totalXPRequired}}</td>
+              <td>{{level.mmBoxesRequired}}</td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
     {{/paper-card-content}}
   {{/paper-card}}
 </div>
