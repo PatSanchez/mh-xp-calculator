@@ -40,7 +40,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.baseURL = '/mh-xp-calculator';
   }
 
   ENV.contentSecurityPolicy = {
