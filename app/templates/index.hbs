@@ -1,0 +1,25 @@
+<div class="xp-calculator">
+  {{#paper-card class="stats"}}
+    {{#paper-card-content}}
+      <h2>Current Stats</h2>
+      {{paper-text label="Serverside XP Boost (%)" value=serverBoost}}
+      {{paper-text label="Stat Sheet XP Boost (%)" value=statSheetBoost}}
+      {{#paper-checkbox checked=isAvenger}}Are you an Avenger?{{/paper-checkbox}}
+      {{#paper-checkbox checked=isCosmic}}Are you cosmic?{{/paper-checkbox}}
+      {{#if isCosmic}}
+        {{#paper-checkbox checked=isCosmicWeek}}Is it Cosmic Week?{{/paper-checkbox}}
+      {{/if}}
+    {{/paper-card-content}}
+  {{/paper-card}}
+
+  {{#paper-card class="results"}}
+    {{#paper-card-content}}
+      <h2>Calculated Results</h2>
+      <h3>Current XP Multiplier: {{formattedCurrentXPMultiplier}}</h3>
+      <h3>Midtown Box XP Value: {{mmBoxCurrentXpFormatted}}</h3>
+      {{#each levels as |level|}}
+        <h3>{{level.number}} - {{level.mmBoxesRequired}}</h3>
+      {{/each}}
+    {{/paper-card-content}}
+  {{/paper-card}}
+</div>

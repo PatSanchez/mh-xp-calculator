@@ -1,0 +1,14 @@
+ @import 'ember-paper';
+
+ md-checkbox {
+   margin: 15px 0;
+ }
+
+ .xp-calculator {
+   padding-top: 1em;
+
+   md-card {
+     float: left;
+     width: calc(50% - 16px);
+   }
+ }
