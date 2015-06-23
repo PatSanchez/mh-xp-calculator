@@ -81,10 +81,6 @@ export default Ember.Controller.extend({
       return 0;
     }
   }),
-  isAvenger: false,
-  avengerBoost: Ember.computed('isAvenger', function() {
-    return this.get('isAvenger') ? 0.5 : 0;
-  }),
   isCosmic: false,
   cosmicMultiplier: Ember.computed('isCosmic', function() {
     return this.get('isCosmic') ? 0.04 : 1;
@@ -93,8 +89,8 @@ export default Ember.Controller.extend({
   cosmicWeekMultiplier: Ember.computed('isCosmicWeek', function() {
     return this.get('isCosmicWeek') ? 2 : 1;
   }),
-  currentXPMultiplier: Ember.computed('sanitizedServerBoost', 'sanitizedStatSheetBoost', 'avengerBoost', 'cosmicMultiplier', 'cosmicWeekMultiplier', 'isCosmic', 'isCosmicWeek', function() {
-    const preCosmicXP = (1 + this.get('sanitizedServerBoost')) * (1 + this.get('sanitizedStatSheetBoost')) * (1 + this.get('avengerBoost'));
+  currentXPMultiplier: Ember.computed('sanitizedServerBoost', 'sanitizedStatSheetBoost', 'cosmicMultiplier', 'cosmicWeekMultiplier', 'isCosmic', 'isCosmicWeek', function() {
+    const preCosmicXP = (1 + this.get('sanitizedServerBoost')) * (1 + this.get('sanitizedStatSheetBoost'));
     if (this.get('isCosmic')) {
       return preCosmicXP * this.get('cosmicMultiplier') * this.get('cosmicWeekMultiplier');
     }
